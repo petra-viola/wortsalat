@@ -1,15 +1,10 @@
-def count_words(input_string):
-    """
-    Count the number of words in a given string.
+from importlib import resources as impresources
+from . import data
 
-    Parameters:
-    - input_string (str): The input string to count words from.
-
-    Returns:
-    - int: The number of words in the input string.
-    """
-    # Split the string into a list of words using whitespace as the delimiter
-    words = input_string.split()
-    
-    # Return the count of words
-    return len(words)
+def count_words(type: str ,text: str) -> int:
+    inp_file = (impresources.files(data) / type)
+    with inp_file.open("rt") as f:
+        dictionary = f.readlines()
+        dictionary = [line.strip("\n") for line in dictionary]
+    count = sum(1 for word in text.split() if word in dictionary)
+    return count

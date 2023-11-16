@@ -16,7 +16,7 @@ else
     exit 1
 fi
 
-source $VENV_DIR/bin/activate
+. $VENV_DIR/bin/activate
 
 echo "##############################"
 echo "### 2. Build the library   ###"

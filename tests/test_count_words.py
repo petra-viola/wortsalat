@@ -1,6 +1,30 @@
+import pytest
+
 from wortsalat.count_words import count_words
 
-def test_count_words():
+
+@pytest.mark.parametrize(
+        "dictionary,text,expected", 
+        [("modalverben", "Petra sollte früher schlafen gehen", 1),
+         ("adjektiv", "Roxy ist ein schöner Hund.", 1),
+         ("adverbien", "Roxy läuft schnell", 1),
+         ("artikel", "Der Hund schläft.", 1),
+         ("emojis", "Viel Spaß :)", 1),
+         ("emotionalewoerter", "Ich liebe meinen Hund.", 1),
+         ("fragewoerter", "Wie geht es dir?", 1),
+         ("informellewörter", "Du bist krass.", 1),
+         ("intensitaetswoerter", "Roxy ist sehr schnell", 1),
+         ("konjunktionen", "Roxy und Stefan gehen spazieren.", 1),
+         ("negativausdruecke", "Heute ist schlechtes Wetter", 1),
+         ("nomen", "Das Haus ist groß", 1),
+         ("praepositionen", "Der Hund steht auf dem Haus.", 1),
+         ("pronomen", "Sie heißt Roxy", 1),
+         ("verbendritterperson", ""),
+         ("verbenersterperson", ""),
+         ("vorsichtigewoerter", "Eventuell war das nicht die beste Idee.", 1)
+
+         ])
+def test_count_words(dictionary, text, expected):
     count = count_words("modalverben", "Petra sollte früher schlafen gehen")
     print(count)
     assert count == 1

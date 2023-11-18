@@ -1,1 +1,1 @@
-# Please read the code, since the project is still under development and no one wants to have a outdated readme 
+# Please read the code, since the project is still under development. For more information read the provided doctrings. Thank you!

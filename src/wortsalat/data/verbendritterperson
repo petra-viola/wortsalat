@@ -1,8 +1,15 @@
-def count_third_person_pronouns(text: str) -> int:
-    third_person_pronouns = ["er", "sie", "es", "sein", "ihr"]
-    third_person_pronoun_count = sum(1 for word in text.split() if word in third_person_pronouns)
-    return third_person_pronoun_count
-
-text = "Er ist genauso groß wie sie und ihr Freund."
-third_person_pronouns_count = count_third_person_pronouns(text)
-print(f"Dritte Person: {third_person_pronouns_count}")
+er/sie/es liest
+er/sie/es schreibt
+er/sie/es liebt
+er/sie/es öffnet
+er/sie/es versteht
+er/sie/es malt
+er/sie/es fragt
+er/sie/es ändert
+er/sie/es löscht
+er/sie/es findet
+er/sie/es verkauft
+er/sie/es baut
+er/sie/es erzählt
+er/sie/es kocht
+er/sie/es singt

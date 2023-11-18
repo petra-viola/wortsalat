@@ -19,12 +19,12 @@ from wortsalat.count_words import count_words
          ("nomen", "Das Haus ist groß", 1),
          ("praepositionen", "Der Hund steht auf dem Haus.", 1),
          ("pronomen", "Sie heißt Roxy", 1),
-         ("verbendritterperson", ""),
-         ("verbenersterperson", ""),
+         #("verbendritterperson", ""),
+         #("verbenersterperson", ""),
          ("vorsichtigewoerter", "Eventuell war das nicht die beste Idee.", 1)
 
          ])
 def test_count_words(dictionary, text, expected):
-    count = count_words("modalverben", "Petra sollte früher schlafen gehen")
+    count = count_words(dictionary, text)
     print(count)
-    assert count == 1
+    assert count == expected

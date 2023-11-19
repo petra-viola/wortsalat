@@ -1,13 +1,19 @@
 #!/bin/sh
 
+BASE_DIR="$( cd "$( dirname "$0" )" && pwd )"
+VENV_DIR="${BASE_DIR}/.venv"
+
+rm -rf "${BASE_DIR}/.pytest_cache"
+rm -rf "${BASE_DIR}/build"
+rm -rf "${BASE_DIR}/dist"
+rm -rf "${BASE_DIR}/src/wortsalat.egg-info"
+rm -rf "${BASE_DIR}/test/__pycache__"
+ 
+
 echo "##############################"
 echo "### 1. Create a new venv   ###"
 echo "##############################"
-BASE_DIR="$( cd "$( dirname "$0" )" && pwd )"
-VENV_DIR="${BASE_DIR}/.venv"
-echo location: "${VENV_DIR}"
 
-rm -rf "${VENV_DIR}"
 if python3 -m venv "${VENV_DIR}"; 
 then
     echo "Venv Created"

@@ -16,3 +16,6 @@ build
 dist
 *.egg-info
 tests/__pycache__
+*.pyc
+*.pyc
+tests/__pycache__/test_count_words.cpython-310-pytest-7.4.3.pyc

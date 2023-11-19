@@ -7,3 +7,5 @@ nirgends
 ohne
 kaum
 selten
+schlecht
+schlechtes

@@ -12,6 +12,7 @@ leise
 jung
 alt
 schön
+schoener
 hässlich
 frisch
 müde

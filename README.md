@@ -1,1 +1,97 @@
-# Please read the code, since the project is still under development. For more information read the provided doctrings. Thank you!
+***DISCLAIMER: STILL UNDER CONSTRUCTION***
+
+# German NLP Library
+
+## Overview
+
+This Python NLP library is designed specifically for the German language, with a primary focus on analyzing written texts based on a predefined set of secondary language attributes. The library is built upon the insights derived from a scientific paper, outlining a systematic approach to text analysis. The workflow consists of five key steps: Input, Preparation, Identification of search terms, Counting search terms, and Output.
+
+## Installation
+
+To use this library, you can install it via pip:
+
+```bash
+pip install german-nlp-library
+
+```
+
+## Usage
+
+### 1. Input
+
+Provide the text you want to analyze as input to the library.
+
+```python
+from german_nlp_library import GermanNLP
+
+text = "Your German text goes here."
+german_nlp = GermanNLP(text)
+```
+
+### 2. Preparation
+
+Tokenize the text and split it into sentences.
+
+```python
+german_nlp.prepare_text()
+```
+
+### 3. Identifying Search Terms
+
+Identify specific search terms in the text, such as verbs, adjectives, and nouns.
+
+```python
+german_nlp.identify_search_terms()
+```
+
+### 4. Counting Search Terms
+
+Count the occurrences of the identified search terms.
+
+```python
+german_nlp.count_search_terms()
+```
+
+### 5. Output
+
+Retrieve the analyzed results.
+
+```python
+results = german_nlp.get_results()
+print(results)
+```
+
+### Readability Testing
+
+The library includes functions for testing readability, such as Flesch-Kincaid, Wiener Sachtext-Formel, and LIX.
+
+```python
+flesch_score = german_nlp.calculate_flesch_kincaid()
+wiener_score = german_nlp.calculate_wiener_sachtext_formel()
+lix_score = german_nlp.calculate_lix()
+
+print(f"Flesch-Kincaid Score: {flesch_score}")
+print(f"Wiener Sachtext-Formel Score: {wiener_score}")
+print(f"LIX Score: {lix_score}")
+```
+
+### Testing
+
+The library incorporates testing functionalities to monitor its progress during development. This ensures the robustness and accuracy of the library over time.
+
+```python
+german_nlp.run_tests()
+```
+
+## Future Development
+
+Continued testing and refinement of the library will be crucial for long-term effectiveness. Additionally, user feedback is highly encouraged to enhance the library's capabilities and address specific needs.
+
+## Contributors
+
+- [petra-viola]
+- [Other Contributor Names]
+
+## License
+
+This library is licensed under the [License Name]. See the [LICENSE.md](LICENSE.md) file for details.

@@ -1,2 +1,19 @@
 ich
 Ich
+
+import json
+
+data = '''
+{"pos": "adv", "head_templates": [{"name": "head", "args": {"1": "de", "2": "adverb", "head": "", "sort": "", "3": "", "4": "", "5": "", "6": "am {{{2}}}"}, "expansion": "umsonst"}], "etymology_text": "um + sonst, compare Danish omsonst.", "etymology_templates": [{"name": "affix", "args": {"1": "de", "2": "um", "3": "sonst"}, "expansion": "um + sonst"}, {"name": "cog", "args": {"1": "da", "2": "omsonst"}, "expansion": "Danish omsonst"}], "sounds": [{"ipa": "/ʊmˈzɔnst/"}, {"audio": "De-umsonst.ogg", "text": "Audio", "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/De-umsonst.ogg", "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d0/De-umsonst.ogg/De-umsonst.ogg.mp3"}], "word": "umsonst", "lang": "German", "lang_code": "de", "categories": [], "senses": [{"links": [["free of charge", "free of charge"], ["gratis", "gratis"]], "synonyms": [{"word": "gratis"}, {"word": "kostenlos"}, {"word": "kostenfrei"}], "glosses": ["free of charge, gratis"], "id": "umsonst-de-adv-i-wfpBXp"}, {"links": [["in vain", "in vain"], ["success", "success"]], "synonyms": [{"word": "vergebens"}, {"word": "vergeblich"}, {"word": "erfolglos"}], "glosses": ["in vain, without success"], "id": "umsonst-de-adv-Rkvq6kwO"}, {"links": [["nothing", "nothing"], ["sake", "sake"]], "glosses": ["for nothing; for the sake of doing it (without expecting reply)"], "id": "umsonst-de-adv-7meMaXEs"}]}
+{"pos": "adj", "head_templates": [{"name": "head", "args": {"1": "de", "2": "adjective form"}, "expansion": "abdominales"}], "word": "abdominales", "lang": "German", "lang_code": "de", "sounds": [{"audio": "De-abdominales.ogg", "text": "Audio", "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/De-abdominales.ogg", "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f4/De-abdominales.ogg/De-abdominales.ogg.mp3"}], "senses": [{"links": [["abdominal", "abdominal#German"]], "glosses": ["strong/mixed nominative/accusative neuter singular of abdominal"], "tags": ["accusative", "form-of", "mixed", "neuter", "nominative", "singular", "strong"], "form_of": [{"word": "abdominal"}], "id": "abdominales-de-adj-uUOn2Gg-", "categories": []}]}
+'''
+
+# Split the data into individual JSON objects
+json_objects = [json.loads(line) for line in data.strip().split('\n')]
+
+# Print parsed data
+for obj in json_objects:
+    print("Part of Speech:", obj["pos"])
+    print("Word:", obj["word"])
+    print("Head Templates:", obj["head_templates"])
+    print("\n" + "=" * 40 + "\n")  # Separator for better readability

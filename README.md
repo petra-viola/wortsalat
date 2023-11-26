@@ -45,38 +45,38 @@ german_nlp.identify_search_terms()
 ```
 
 Searcheable terms include:
-Percentage of I/We
-I, me
-first person
-Verbs
-Verbs according to word relationship
-Adverbs
-Adverbs by word relationship
-pronouns
-Pronouns by word ratio
-affiliatory humour
-informal words
-words in total
-articles
-Articles by interaction ratio
-nouns
-Nouns by interaction ratio
-Adjectives
-Adjectives by interaction ratio
-Prepositions
-Prepositions by interaction ratio
-Provisional words* 
-Third person (formality)
-Manipulation of T and F
-Words per sentence
-Emojis Emotions negative
-Words related to swearing/danger
-Aggressive humour
-References to facts
-Average length of words
-Words related to emotions
-Emojis Emotions positive
-Emojis neutral
+Percentage of I/We,
+I, me,
+first person,
+Verbs,
+Verbs according to word relationship,
+Adverbs,
+Adverbs by word relationship,
+pronouns,
+Pronouns by word ratio,
+affiliatory humour,
+informal words,
+words in total,
+articles,
+Articles by interaction ratio,
+nouns,
+Nouns by interaction ratio,
+Adjectives,
+Adjectives by interaction ratio,
+Prepositions,
+Prepositions by interaction ratio,
+Provisional words*, 
+Third person (formality),
+Manipulation of T and F,
+Words per sentence,
+Emojis Emotions negative,
+Words related to swearing/danger,
+Aggressive humour,
+References to facts,
+Average length of words,
+Words related to emotions,
+Emojis Emotions positive,
+Emojis neutral,
 neutral humour
 
 ### 4. Counting Search Terms

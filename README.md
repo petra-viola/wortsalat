@@ -122,6 +122,13 @@ german_nlp.run_tests()
 
 Continued testing and refinement of the library will be crucial for long-term effectiveness. Additionally, user feedback is highly encouraged to enhance the library's capabilities and address specific needs.
 
+### To Dos
+
+- code examples
+- new wordlists
+- find new name
+- github actions that push te library to pip
+
 ## Contributors
 
 - [petra-viola]

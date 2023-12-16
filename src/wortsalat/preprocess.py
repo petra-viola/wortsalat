@@ -15,10 +15,6 @@ def tokenize_words(text: str) -> tuple[list[str]]:
     Returns:
     tuple: A tuple containing:
         - list: A list of words extracted from the input text.
-
-    Example:
-    >>> tokenize_words("This is a sample sentence.")
-    (['This', 'is', 'a', 'sample', 'sentence', '.'])
     """
     words = word_tokenize(text)
 
@@ -34,10 +30,6 @@ def split_sentences(text: str) -> tuple[list[str]]:
     Returns:
     tuple: A tuple containing:
         - list: A list of sentences extracted from the input text.
-
-    Example:
-    >>> split_sentences("This is a sample sentence. Another one follows.")
-    (['This is a sample sentence.', 'Another one follows.'])
     """
     sentences = sent_tokenize(text)
 

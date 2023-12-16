@@ -1,10 +1,11 @@
 import nltk
 from nltk.tokenize import word_tokenize, sent_tokenize
 
-# Download NLTK data
 nltk.download('punkt')
 
-def tokenize_words(text: str) -> tuple[list[str], int]:
+text = input("Enter the text you want to analyze: ")
+
+def tokenize_words(text: str) -> tuple[list[str]]:
     """
     Tokenize the input text into words using NLTK's word_tokenize.
 
@@ -14,18 +15,16 @@ def tokenize_words(text: str) -> tuple[list[str], int]:
     Returns:
     tuple: A tuple containing:
         - list: A list of words extracted from the input text.
-        - int: The total number of words in the input text.
 
     Example:
     >>> tokenize_words("This is a sample sentence.")
-    (['This', 'is', 'a', 'sample', 'sentence', '.'], 6)
+    (['This', 'is', 'a', 'sample', 'sentence', '.'])
     """
     words = word_tokenize(text)
-    num_words = len(words)
 
-    return words, num_words
+    return words
 
-def split_sentences(text: str) -> tuple[list[str], int]:
+def split_sentences(text: str) -> tuple[list[str]]:
     """
     Split the input text into sentences using NLTK's sent_tokenize.
 
@@ -35,13 +34,11 @@ def split_sentences(text: str) -> tuple[list[str], int]:
     Returns:
     tuple: A tuple containing:
         - list: A list of sentences extracted from the input text.
-        - int: The total number of sentences in the input text.
 
     Example:
     >>> split_sentences("This is a sample sentence. Another one follows.")
-    (['This is a sample sentence.', 'Another one follows.'], 2)
+    (['This is a sample sentence.', 'Another one follows.'])
     """
     sentences = sent_tokenize(text)
-    num_sentences = len(sentences)
 
-    return sentences, num_sentences
+    return sentences

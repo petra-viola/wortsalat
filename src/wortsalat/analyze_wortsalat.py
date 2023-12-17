@@ -2,53 +2,70 @@ import nltk
 from HanTa import HanoverTagger as ht
 
 from wortsalat.preprocess import tokenize_words, split_sentences
+from wortsalat.count import count_total_words, count_total_sentences, count_average_word_length, count_average_words_per_sentence
+#from wortsalat.count import count_tags, count_words
+from wortsalat.identify_tags import identify_tags
 from wortsalat.identify_words import identify_words
+from wortsalat.lix import calculate_lix
+from wortsalat.wrapper import calculate_flesch_score, calculate_wiener_sachtextformel
 
 nltk.download('punkt')
-
 tagger = ht.HanoverTagger('morphmodel_ger.pgz')
 
 def analyze_text(text: str) -> dict:
+    """
+    Analyze a given text and return a dictionary with various linguistic statistics.
+
+    This function preprocesses the input text by tokenizing it into words and sentences, and then calculates various linguistic statistics, such as the total number of words and sentences, the average word length and words per sentence, and the number of words that match specific POS tags.
+
+    Parameters:
+    - text (str): The input text to analyze.
+
+    Returns:
+    - dict: A dictionary with various linguistic statistics.
+    """
+
+    #preprocess
     words = tokenize_words(text)
     sentences = split_sentences(text)
-    tags = tagger.tag_sent(words, taglevel=0)
+    #count
+    num_total_words = count_total_words(text)
+    num_total_sentences = count_total_sentences(text)
+    length_average_word = count_average_word_length(text)
+    length_average_sentence = count_average_words_per_sentence(text)
+    #num_tags = count_tags(tag_lists)
+    #num_words = count_words(word_lists)
 
-    word_lists = {word: [] for word in words}
-    for word in words:
-        word_lists[word].append(word)
-
-    tag_lists = {tag: [] for tag in tags}
-    for word, tag in tags:
-        tag_lists[tag].append(word)
-
-    num_words = len(words)
-    num_sentences = len(sentences)
-    total_characters = sum(len(word) for word in words)
-    average_word_length = total_characters / num_words
-    total_words = sum(len(words) for word, words in word_lists.items())
-    average_words_per_sentence = total_words / num_sentences
-
-    adjektive = identify_words(adjektive, words)
-    adverbien = identify_words(adverbien, words)
-    artikel = identify_words(artikel, words)
-    # emojis = identify_words(emojis, words)
-    ich = identify_words(ich, words)
-    modalverben = identify_words(modalverben, words)
-    nomen = identify_words(nomen, words)
-    praepositionen = identify_words(praepositionen, words)
-    pronomen = identify_words(pronomen, words)
-    verben = identify_words(verben, words)
-    verbendritterperson = identify_words(verbendritterperson, words)
-    verbenersterperson = identify_words(verbenersterperson, words)
-    wir = identify_words(wir, words)
-
+    #identify_tags(tag, text, level)
+    adjektive = identify_tags(ADJ, words, 0)
+    adverbien = identify_tags(ADV, words, 0)
+    artikel = identify_tags(ART, words, 0)
+    modalverben = identify_tags(VM, words, 0)
+    nomen = identify_tags(NN, words, 0)
+    praepositionen = identify_words(APPO, APPR, APPRART, APPZR, words, 0)
+    pronomen = identify_words(PPER, words, 0)
+    verben = identify_words(VA(FIN), VA(IMP), VA(INF), VM(FIN), VM(INF), VM(PP), VV(FIN), VV(IMP), VV(INF), VV(IZU), VV(PP), words, 0)
+    
     # ich/ wir
+    ich = identify_words(ich, words)
+    wir = identify_words(wir, words)
+    # emojis = identify_words(emojis, words)
+
+    # Anzahl pro kategorie und verhältnis zur gesamtwortzahl
+
+    lix = calculate_lix(text)
+    flesch_kincaid = calculate_flesch_score(text)
+    wiener_sachtextformel = calculate_wiener_sachtextformel(text)
 
     analysis = {
-        "total number of words": num_words,
-        "average words per sentence": average_words_per_sentence,
-        "average word length": average_word_length,
-        # count
+        "words": words,
+        "sentences": sentences,
+        "total number of words": num_total_words,
+        "total number of sentences": num_total_sentences,
+        "average words per sentence": length_average_sentence,
+        "average word length": length_average_word,
+        # "identified pos-tags": num_tags,
+        # "identified words": num_words,
         "adjectives": adjektive,
         "adverbs": adverbien,
         "articles": artikel,
@@ -58,50 +75,28 @@ def analyze_text(text: str) -> dict:
         "prepositions": praepositionen,
         "pronouns": pronomen,
         "verbs": verben,
-        "third person verbs": verbendritterperson,
-        "first person verbs": verbenersterperson,
         # "emojis negative":
         # "emojis positive":
         # "emojis neutral":
-        "lix": 
-        "flesch-kincaid":
-        "wiener-sachtextformel":
+        "lix": lix,
+        "flesch-kincaid": flesch_kincaid,
+        "wiener-sachtextformel": wiener_sachtextformel
     }
     return analysis
 
 def print_wortsalat(text: str) -> dict:
+    """
+    Analyze a given text and print the resulting linguistic statistics.
+
+    This function preprocesses the input text by tokenizing it into words and sentences, and then calculates various linguistic statistics, such as the total number of words and sentences, the average word length and words per sentence, and the number of words that match specific POS tags. It then prints these statistics.
+
+    Parameters:
+    - text (str): The input text to analyze.
+
+    Returns:
+    - dict: A dictionary with various linguistic statistics.
+    """
     text = input()
     analysis = analyze_text(text)
     for key, value in analysis.items():
         print(key, ":", value)
-
-#p
-def count_total_words(text: str) -> int:
-  words = tokenize_words(text)
-  num_words = len(words)
-  return num_words
-
-def count_total_sentences(text: str) -> int:
-  sentences = split_sentences(text)
-  num_sentences = len(sentences)
-  return num_sentences
-
-def count_average_word_length(text: str) -> float:
-  words = tokenize_words(text)
-  total_characters = sum(len(word) for word in words)
-  lengths_average_word = total_characters / len(words)
-  return lengths_average_word
-
-def count_average_words_per_sentence(text: str) -> float:
-  sentences = split_sentences(text)
-  total_words = sum(len(sentence.split()) for sentence in sentences)
-  length_average_sentence = total_words / len(sentences)
-  return length_average_sentence
-
-def count_tags(tag_lists: dict) -> dict:
-  num_tags = {word: len(words) for word, words in tag_lists.items()}
-  return num_tags
-
-def count_words(word_lists: dict) -> dict:
-  num_words = {word: len(words) for word, words in word_lists.items()}
-  return num_words

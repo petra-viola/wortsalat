@@ -1,6 +1,6 @@
 import textstat
 
-flesch_score = textstat.flesch_reading_ease(text)
+calculate_flesch_score = textstat.flesch_reading_ease(text)
 """
 Calculate the "Flesch reading ease" score of a given text.
 
@@ -14,7 +14,7 @@ Returns:
 - float: The Flesch reading ease score of the given text.
 """
 
-wiener_sachtextformel = textstat.wiener_sachtextformel(text)
+calculate_wiener_sachtextformel = textstat.wiener_sachtextformel(text)
 """
 Calculate the "Wiener Sachtextformel" score of a given text.
 

@@ -1,6 +1,6 @@
 from wortsalat.preprocess import tokenize_words, split_sentences
-from wortsalat.identify_tags import tag_lists
-from wortsalat.identify_words import word_lists
+# from wortsalat.identify_tags import tag_lists
+# from wortsalat.identify_words import word_lists
 
 def count_total_words(text: str) -> int:
     """
@@ -48,8 +48,8 @@ def count_average_word_length(text: str) -> float:
     """
     words = tokenize_words(text)
     total_characters = sum(len(word) for word in words)
-    lenghts_average_word = total_characters / len(words)
-    return lenghts_average_word
+    lenght_average_word = total_characters / len(words)
+    return lenght_average_word
 
 def count_average_words_per_sentence(text: str) -> float:
     """
@@ -68,6 +68,8 @@ def count_average_words_per_sentence(text: str) -> float:
     length_average_sentence = total_words / len(sentences)
     return length_average_sentence
 
+#anpassen
+'''
 def count_tags(tag_lists: dict) -> dict:
     """
     Count the number of occurrences of each POS tag in a given dictionary.
@@ -82,7 +84,10 @@ def count_tags(tag_lists: dict) -> dict:
     """
     num_tags = {word: len(words) for word, words in tag_lists.items()}
     return num_tags
+'''
 
+#anpassen
+'''
 def count_words(word_lists: dict) -> dict:
     """
     Count the number of occurrences of each word in a given dictionary.
@@ -97,3 +102,4 @@ def count_words(word_lists: dict) -> dict:
     """
     num_words = {word: len(words) for word, words in word_lists.items()}
     return num_words
+'''

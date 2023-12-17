@@ -4,14 +4,25 @@ from wortsalat.preprocess import tokenize_words
 
 tagger = ht.HanoverTagger('morphmodel_ger.pgz')
 
-def identify_tags(text: str, taglevel: int = 0) -> Dict[str, List[str]]:
+def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]]:
     """
-    Identify POS tags for words in a given text using the Hannover Tagger library.
+    Identify words in a given text that match a specific POS tag.
 
-    This function tokenizes the input text, then uses the Hannover Tagger library to assign POS tags to each word.
-    The POS tags are then grouped by tag type, and the function returns a dictionary where each key is a POS tag and the value is a list of words that were assigned that tag.
+    This function tokenizes the input text, tags the words using the HanTa library, and then identifies the words that match the specified POS tag.
+
+    tags = {
+    "adjektive": ["ADJ"],
+    "adverbien": ["ADV"],
+    "artikel": ["ART"],
+    "modalverben": ["VM"],
+    "nomen": ["NN"],
+    "praepositionen": ["APPO, APPR, APPRART, APPZR"],
+    "pronomen": ["PPER"],
+    "verben": ["VA(FIN), VA(IMP), VA(INF), VM(FIN), VM(INF), VM(PP), VV(FIN), VV(IMP), VV(INF), VV(IZU), VV(PP)"]
+    }
 
     Parameters:
+    - tag (str): The POS tag to match.
     - text (str): The input text for which the POS tags will be identified.
     - taglevel (int): The level of detail of the POS tags to return. Default is 0.
 
@@ -19,14 +30,12 @@ def identify_tags(text: str, taglevel: int = 0) -> Dict[str, List[str]]:
     - Dict[str, List[str]]: A dictionary where each key is a POS tag and each value is a list of words that were assigned that tag.
     """
     words = tokenize_words(text)
-    tags = tagger.tag_sent(words, taglevel=taglevel)
-    tag_lists: Dict[str, List[str]] = {tag: [] for word, tag in tags}
-    for word, tag in tags:
-        tag_lists[tag].append(word)
-    return tag_lists
+    tagged_words = tagger_de.tag_sent(words, taglevel=0)
 
-text = "Fachmärkte sind interessant."
+    words_with_tag = []
 
-tags = identify_tags(text, taglevel=0)
+    for word, pos_tag in tagged_words:
+        if pos_tag == tag:
+            words_with_tag.append(word)
 
-print("POS-tags:", tags)
+    return words_with_tag

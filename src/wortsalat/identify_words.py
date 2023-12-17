@@ -1,4 +1,5 @@
 from importlib import resources as impresources
+from wortsalat.preprocess import tokenize_words
 from . import data
 
 def identify_words(type: str, text: str) -> dict:
@@ -19,7 +20,7 @@ def identify_words(type: str, text: str) -> dict:
     with inp_file.open("rt") as f:
         dictionary = f.readlines()
         dictionary = [line.strip("\n") for line in dictionary]
-    words = text.split()
+    words = tokenize_words(text)
     word_lists = {word: [] for word in words}
     for word in words:
         if word in dictionary:

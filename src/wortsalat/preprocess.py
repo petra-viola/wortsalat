@@ -3,7 +3,9 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 
 nltk.download('punkt')
 
-def tokenize_words(text: str) -> tuple[list[str]]:
+punctuation_marks = ["!", "?", "(", ")", ",", ".", "-"]
+
+def tokenize_words(text: str, drop_punctuation=False) -> tuple[list[str]]:
     """
     Tokenize the input text into words using NLTK's word_tokenize.
 
@@ -15,6 +17,8 @@ def tokenize_words(text: str) -> tuple[list[str]]:
         - list: A list of words extracted from the input text.
     """
     words = word_tokenize(text)
+    if drop_punctuation:
+        words = [word for word in words if word not in punctuation_marks]
 
     return words
 

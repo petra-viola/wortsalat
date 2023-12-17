@@ -30,12 +30,12 @@ def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]
     - Dict[str, List[str]]: A dictionary where each key is a POS tag and each value is a list of words that were assigned that tag.
     """
     words = tokenize_words(text)
-    tagged_words = tagger.tag_sent(words, taglevel=0)
+    tagged_words = tagger.tag_sent(words, taglevel=1)
 
-    words_with_tag = []
+    words_with_tag = list()
 
-    for word, pos_tag in tagged_words:
-        if pos_tag == tag:
+    for word in tagged_words:
+        if word[2] == tag:
             words_with_tag.append(word)
 
     return words_with_tag

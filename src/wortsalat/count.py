@@ -2,7 +2,7 @@ from wortsalat.preprocess import tokenize_words, split_sentences
 # from wortsalat.identify_tags import tag_lists
 # from wortsalat.identify_words import word_lists
 
-def count_total_words(text: str) -> int:
+def count_total_words(text: str, drop_punctuation=False) -> int:
     """
     Count the total number of words in a given text.
 
@@ -14,7 +14,7 @@ def count_total_words(text: str) -> int:
     Returns:
     - int: The total number of words in the input text.
     """
-    words = tokenize_words(text)
+    words = tokenize_words(text, drop_punctuation)
     num_words = len(words)
     return num_words
 

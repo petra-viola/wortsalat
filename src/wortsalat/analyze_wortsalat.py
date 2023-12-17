@@ -8,6 +8,7 @@ from wortsalat.identify_tags import identify_tags
 from wortsalat.identify_words import identify_words
 from wortsalat.lix import calculate_lix
 from wortsalat.wrapper import calculate_flesch_score, calculate_wiener_sachtextformel
+# investigate
 
 nltk.download('punkt')
 tagger = ht.HanoverTagger('morphmodel_ger.pgz')

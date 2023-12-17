@@ -68,7 +68,7 @@ def count_average_words_per_sentence(text: str) -> float:
     length_average_sentence = total_words / len(sentences)
     return length_average_sentence
 
-#anpassen
+# TODO: funktion fertig schreiben
 '''
 def count_tags(tag_lists: dict) -> dict:
     """
@@ -86,7 +86,7 @@ def count_tags(tag_lists: dict) -> dict:
     return num_tags
 '''
 
-#anpassen
+# TODO: funktion fertig schreiben
 '''
 def count_words(word_lists: dict) -> dict:
     """

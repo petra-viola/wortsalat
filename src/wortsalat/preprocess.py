@@ -3,8 +3,6 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 
 nltk.download('punkt')
 
-text = input("Enter the text you want to analyze: ")
-
 def tokenize_words(text: str) -> tuple[list[str]]:
     """
     Tokenize the input text into words using NLTK's word_tokenize.

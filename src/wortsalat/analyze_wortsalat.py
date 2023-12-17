@@ -1,5 +1,4 @@
-import nltk
-from HanTa import HanoverTagger as ht
+from HanTa import HanoverTagger as ht 
 
 from wortsalat.preprocess import tokenize_words, split_sentences
 from wortsalat.count import count_total_words, count_total_sentences, count_average_word_length, count_average_words_per_sentence
@@ -10,7 +9,6 @@ from wortsalat.lix import calculate_lix
 from wortsalat.wrapper import calculate_flesch_score, calculate_wiener_sachtextformel
 # investigate
 
-nltk.download('punkt')
 tagger = ht.HanoverTagger('morphmodel_ger.pgz')
 
 def analyze_text(text: str) -> dict:
@@ -38,14 +36,14 @@ def analyze_text(text: str) -> dict:
     #num_words = count_words(word_lists)
 
     #identify_tags(tag, text, level)
-    adjektive = identify_tags(ADJ, words, 0)
-    adverbien = identify_tags(ADV, words, 0)
-    artikel = identify_tags(ART, words, 0)
-    modalverben = identify_tags(VM, words, 0)
-    nomen = identify_tags(NN, words, 0)
-    praepositionen = identify_words(APPO, APPR, APPRART, APPZR, words, 0)
-    pronomen = identify_words(PPER, words, 0)
-    verben = identify_words(VA(FIN), VA(IMP), VA(INF), VM(FIN), VM(INF), VM(PP), VV(FIN), VV(IMP), VV(INF), VV(IZU), VV(PP), words, 0)
+    adjektive = identify_tags('ADJ', words, 0)
+    adverbien = identify_tags('ADV', words, 0)
+    artikel = identify_tags('ART', words, 0)
+    modalverben = identify_tags('VM', words, 0)
+    nomen = identify_tags('NN', words, 0)
+    praepositionen = identify_words('APPO', 'APPR', 'APPRART', 'APPZR', words, 0)
+    pronomen = identify_words('PPER', words, 0)
+    verben = identify_words("VA(FIN)", "VA(IMP)", "VA(INF)", "VM(FIN)", "VM(INF)", "VM(PP)," "VV(FIN)", "VV(IMP)", "VV(INF)", "VV(IZU)", "VV(PP)," words, 0)
     
     # ich/ wir
     ich = identify_words(ich, words)

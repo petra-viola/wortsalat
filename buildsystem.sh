@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 BASE_DIR="$( cd "$( dirname "$0" )" && pwd )"
 VENV_DIR="${BASE_DIR}/.venv"
 

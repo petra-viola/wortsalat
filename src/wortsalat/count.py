@@ -48,8 +48,8 @@ def count_average_word_length(text: str) -> float:
     """
     words = tokenize_words(text)
     total_characters = sum(len(word) for word in words)
-    lenght_average_word = total_characters / len(words)
-    return lenght_average_word
+    length_average_word = total_characters / len(words)
+    return length_average_word
 
 def count_average_words_per_sentence(text: str) -> float:
     """

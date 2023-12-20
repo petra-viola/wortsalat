@@ -38,5 +38,14 @@ def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]
         if word[2] == tag:
             words_with_tag.append(word)
 
-    return words_with_tag
+    adjektive = identify_tags('ADJ', words, 0)
+    adverbien = identify_tags('ADV', words, 0)
+    artikel = identify_tags('ART', words, 0)
+    modalverben = identify_tags('VM', words, 0)
+    nomen = identify_tags('NN', words, 0)
+    praepositionen = identify_words('APPO', 'APPR', 'APPRART', 'APPZR', words, 0)
+    pronomen = identify_words('PPER', words, 0)
+    verben = identify_words("VA(FIN)", "VA(IMP)", "VA(INF)", "VM(FIN)", "VM(INF)", "VM(PP)," "VV(FIN)", "VV(IMP)", "VV(INF)", "VV(IZU)", "VV(PP)," words, 0)
+    
+    return words_with_tag, adjektive, adverbien, artikel, modalverben, nomen, praepositionen, pronomen, verben
 

@@ -1,6 +1,6 @@
 from wortsalat.preprocess import tokenize_words, split_sentences
-# from wortsalat.identify_tags import tag_lists
-# from wortsalat.identify_words import word_lists
+from wortsalat.identify_tags import words_with_tag
+from wortsalat.identify_words import identified_words
 
 def count_total_words(text: str, drop_punctuation=False) -> int:
     """
@@ -68,38 +68,26 @@ def count_average_words_per_sentence(text: str) -> float:
     length_average_sentence = total_words / len(sentences)
     return length_average_sentence
 
-# TODO: funktion fertig schreiben
-'''
-def count_tags(tag_lists: dict) -> dict:
+def count_words_with_tag(words_with_tag: list[str]) -> int:
     """
-    Count the number of occurrences of each POS tag in a given dictionary.
-
-    This function takes a dictionary where each key is a POS tag and each value is a list of words assigned that tag, and then counts the number of words assigned each tag.
+    Count the number of items in a given list.
 
     Parameters:
-    - tag_lists (dict): The dictionary of POS tags and words.
+    - words_with_tag (list): The list of words with tags.
 
     Returns:
-    - dict: A dictionary where each key is a POS tag and each value is the number of words assigned that tag.
+    - int: The number of items in the list.
     """
-    num_tags = {word: len(words) for word, words in tag_lists.items()}
-    return num_tags
-'''
+    return len(words_with_tag)
 
-# TODO: funktion fertig schreiben
-'''
-def count_words(word_lists: dict) -> dict:
+def count_identified_words(identified_words: list[str]) -> int:
     """
-    Count the number of occurrences of each word in a given dictionary.
-
-    This function takes a dictionary where each key is a word and each value is a list of occurrences of that word, and then counts the number of occurrences of each word.
+    Count the number of words in a given list.
 
     Parameters:
-    - word_lists (dict): The dictionary of words and their occurrences.
+    - words (list): The list of words.
 
     Returns:
-    - dict: A dictionary where each key is a word and each value is the number of occurrences of that word.
+    - int: The number of words in the list.
     """
-    num_words = {word: len(words) for word, words in word_lists.items()}
-    return num_words
-'''
+    return len(identified_words)

@@ -9,6 +9,8 @@ def calculate_lix(text: str) -> float:
     (number of words per sentence) and the percentage of long words (words with more than six letters).
     This readability measure was developed by Swedish scholar Carl-Hugo Björnsson.
 
+    https://de.wikipedia.org/wiki/Lix_(Lesbarkeitsindex)
+
     Parameters:
     - text (str): The input text for which the LIX index will be calculated.
 

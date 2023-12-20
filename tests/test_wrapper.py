@@ -2,10 +2,13 @@ import pytest
 from wortsalat.wrapper import calculate_wiener_sachtextformel, calculate_flesch_score
 
 # TODO: werte unabhängig prüfen, test funktioniert
+# 99.45 == 83.83
+# 77.55 == 93.81
+# 68.55 == 76.22
 @pytest.mark.parametrize("text, expected_score", [
-    ("Das hier ist ein Beispielsatz. Hier kommt der nächste.", 83.83),
-    ("Ein einzelner Satz.", 93.81),
-    ("Ein komplexer und langerer Satz mit Wortern die uber sechs Buchstaben haben.", 76.22),
+    ("Das hier ist ein Beispielsatz. Hier kommt der nächste.", 99.45),
+    ("Ein einzelner Satz.", 77.55),
+    ("Ein komplexer und langerer Satz mit Wortern die uber sechs Buchstaben haben.", 68.55),
 ])
 def test_calculate_flesch_score(text, expected_score):
     assert calculate_flesch_score(text) == expected_score

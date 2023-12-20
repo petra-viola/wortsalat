@@ -91,12 +91,11 @@ This will output the Flesch reading ease score of the text.
 - [NLTK](https://www.nltk.org/)
 - [HanTa](https://github.com/wartaal/HanTa)
 - [textstat](https://pypi.org/project/textstat/)
-- [LIX](https://de.wikipedia.org/wiki/Lix_(Lesbarkeitsindex))
 
 ## Contributing - It takes a village!
 
-- [petra-viola]
 - [thespaceinvader]
+- [petra-viola]
 
 If you find a bug or have a feature request, please open an issue on GitHub. If you want to contribute to the development of Wortsalat, please fork the repository, make your changes, and then open a pull request.
 

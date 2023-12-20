@@ -1,5 +1,5 @@
 import pytest
-from wortsalat.identify_tags import identify_tags 
+from wortsalat.identify_tags import identify_tags
 
 def test_identify_tags():
    text = "Dies ist ein Beispieltext. Hier sind einige Adjektive und Verben."

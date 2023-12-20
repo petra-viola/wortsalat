@@ -1,6 +1,4 @@
 from wortsalat.preprocess import tokenize_words, split_sentences
-from wortsalat.identify_tags import words_with_tag
-from wortsalat.identify_words import identified_words
 
 def count_total_words(text: str, drop_punctuation=False) -> int:
     """
@@ -34,7 +32,7 @@ def count_total_sentences(text: str) -> int:
     num_sentences = len(sentences)
     return num_sentences
 
-def count_average_word_length(text: str) -> float:
+def count_average_word_length(text: str, drop_punctuation=False) -> int:
     """
     Calculate the average length of words in a given text.
 
@@ -46,7 +44,7 @@ def count_average_word_length(text: str) -> float:
     Returns:
     - float: The average length of words in the input text.
     """
-    words = tokenize_words(text)
+    words = tokenize_words(text, drop_punctuation)
     total_characters = sum(len(word) for word in words)
     length_average_word = total_characters / len(words)
     return length_average_word
@@ -67,27 +65,3 @@ def count_average_words_per_sentence(text: str) -> float:
     total_words = sum(len(sentence.split()) for sentence in sentences)
     length_average_sentence = total_words / len(sentences)
     return length_average_sentence
-
-def count_words_with_tag(words_with_tag: list[str]) -> int:
-    """
-    Count the number of items in a given list.
-
-    Parameters:
-    - words_with_tag (list): The list of words with tags.
-
-    Returns:
-    - int: The number of items in the list.
-    """
-    return len(words_with_tag)
-
-def count_identified_words(identified_words: list[str]) -> int:
-    """
-    Count the number of words in a given list.
-
-    Parameters:
-    - words (list): The list of words.
-
-    Returns:
-    - int: The number of words in the list.
-    """
-    return len(identified_words)

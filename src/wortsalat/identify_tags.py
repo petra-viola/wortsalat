@@ -43,9 +43,20 @@ def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]
     artikel = identify_tags('ART', words, 0)
     modalverben = identify_tags('VM', words, 0)
     nomen = identify_tags('NN', words, 0)
-    praepositionen = identify_words('APPO', 'APPR', 'APPRART', 'APPZR', words, 0)
-    pronomen = identify_words('PPER', words, 0)
-    verben = identify_words("VA(FIN)", "VA(IMP)", "VA(INF)", "VM(FIN)", "VM(INF)", "VM(PP)," "VV(FIN)", "VV(IMP)", "VV(INF)", "VV(IZU)", "VV(PP)," words, 0)
+    #praepositionen = identify_words('APPO', 'APPR', 'APPRART', 'APPZR', words, 0)
+    #pronomen = identify_words('PPER', words, 0)
+    #verben = identify_words('VA', words, 0)
     
-    return words_with_tag, adjektive, adverbien, artikel, modalverben, nomen, praepositionen, pronomen, verben
+    return words_with_tag, adjektive, adverbien, artikel, modalverben, nomen # praepositionen, pronomen, verben
 
+def count_words_with_tag(words_with_tag: list[str]) -> int:
+    """
+    Count the number of items in a given list.
+
+    Parameters:
+    - words_with_tag (list): The list of words with tags.
+
+    Returns:
+    - int: The number of items in the list.
+    """
+    return len(words_with_tag)

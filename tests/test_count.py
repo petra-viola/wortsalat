@@ -8,8 +8,7 @@ from wortsalat.identify_tags import count_words_with_tag
 
 def test_count_total_words():
     text = "Das ist ein interessanter Artikel."
-    assert count_total_words(text) == 6
-# punkt?
+    assert count_total_words(text) == 5
 
 def test_count_total_sentences():
     text = "Das ist ein interessanter Artikel."
@@ -17,7 +16,7 @@ def test_count_total_sentences():
 
 def test_count_average_word_length():
     text = "Das ist ein interessanter Artikel."
-    assert count_average_word_length(text) == 7.5
+    assert count_average_word_length(text) == 5.8
 
 def test_count_average_words_per_sentence():
     text = "Das ist ein interessanter Artikel."

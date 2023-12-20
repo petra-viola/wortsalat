@@ -1,6 +1,6 @@
 from wortsalat.preprocess import tokenize_words, split_sentences
 
-def count_total_words(text: str, drop_punctuation=False) -> int:
+def count_total_words(text: str, drop_punctuation=True) -> int:
     """
     Count the total number of words in a given text.
 
@@ -32,7 +32,7 @@ def count_total_sentences(text: str) -> int:
     num_sentences = len(sentences)
     return num_sentences
 
-def count_average_word_length(text: str, drop_punctuation=False) -> int:
+def count_average_word_length(text: str, drop_punctuation=True) -> int:
     """
     Calculate the average length of words in a given text.
 

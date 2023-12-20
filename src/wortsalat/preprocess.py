@@ -18,7 +18,7 @@ def tokenize_words(text: str, drop_punctuation=False) -> tuple[list[str]]:
     tuple: A tuple containing:
     - list: A list of words extracted from the input text.
     """
-    words = word_tokenize(text)
+    words = word_tokenize(text, language="german")
     if drop_punctuation:
         words = [word for word in words if word not in punctuation_marks]
 

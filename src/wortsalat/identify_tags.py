@@ -4,7 +4,7 @@ from wortsalat.preprocess import tokenize_words
 
 tagger = ht.HanoverTagger('morphmodel_ger.pgz')
 
-def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]]:
+def identify_tags(tag: str, text: str, taglevel: int = 1) -> Dict[str, List[str]]:
     """
     This function tags the words using the HanTa library, and then identifies the words that match the specified POS tag.
 
@@ -30,24 +30,15 @@ def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]
     - Dict[str, List[str]]: A dictionary where each key is a POS tag and each value is a list of words that were assigned that tag.
     """
     words = tokenize_words(text)
-    tagged_words = tagger.tag_sent(words, taglevel=1)
+    tagged_words = tagger.tag_sent(words, taglevel=taglevel)
 
     words_with_tag = list()
 
     for word in tagged_words:
         if word[2] == tag:
             words_with_tag.append(word)
-
-    adjektive = identify_tags('ADJ', words, 0)
-    adverbien = identify_tags('ADV', words, 0)
-    artikel = identify_tags('ART', words, 0)
-    modalverben = identify_tags('VM', words, 0)
-    nomen = identify_tags('NN', words, 0)
-    #praepositionen = identify_words('APPO', 'APPR', 'APPRART', 'APPZR', words, 0)
-    #pronomen = identify_words('PPER', words, 0)
-    #verben = identify_words('VA', words, 0)
     
-    return words_with_tag, adjektive, adverbien, artikel, modalverben, nomen # praepositionen, pronomen, verben
+    return words_with_tag 
 
 def count_words_with_tag(words_with_tag: list[str]) -> int:
     """

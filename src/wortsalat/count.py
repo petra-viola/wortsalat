@@ -2,7 +2,7 @@ from wortsalat.preprocess import tokenize_words, split_sentences
 # from wortsalat.identify_tags import tag_lists
 # from wortsalat.identify_words import word_lists
 
-def count_total_words(text: str) -> int:
+def count_total_words(text: str, drop_punctuation=False) -> int:
     """
     Count the total number of words in a given text.
 
@@ -14,7 +14,7 @@ def count_total_words(text: str) -> int:
     Returns:
     - int: The total number of words in the input text.
     """
-    words = tokenize_words(text)
+    words = tokenize_words(text, drop_punctuation)
     num_words = len(words)
     return num_words
 
@@ -68,7 +68,7 @@ def count_average_words_per_sentence(text: str) -> float:
     length_average_sentence = total_words / len(sentences)
     return length_average_sentence
 
-#anpassen
+# TODO: funktion fertig schreiben
 '''
 def count_tags(tag_lists: dict) -> dict:
     """
@@ -86,7 +86,7 @@ def count_tags(tag_lists: dict) -> dict:
     return num_tags
 '''
 
-#anpassen
+# TODO: funktion fertig schreiben
 '''
 def count_words(word_lists: dict) -> dict:
     """

@@ -8,6 +8,28 @@ def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]
     """
     Identify words in a given text that match a specific POS tag.
 
+    Parameters:
+    - tag (str): The POS tag to match.
+    - text (str): The input text for which the POS tags will be identified.
+    - taglevel (int): The level of detail of the POS tags to return. Default is 0.
+
+    Returns:
+    - Dict[str, List[str]]: A dictionary where each key is a POS tag and each value is a list of words that were assigned that tag.
+    """
+    words = tokenize_words(text)
+    tagged_words = tagger_de.tag_sent(words, taglevel=0)
+
+    words_with_tag = []
+
+    for word, pos_tag in tagged_words:
+        if pos_tag == tag:
+            words_with_tag.append(word)
+
+    return words_with_tag
+
+    """
+    Identify words in a given text that match a specific POS tag.
+
     This function tokenizes the input text, tags the words using the HanTa library, and then identifies the words that match the specified POS tag.
 
     tags = {
@@ -29,13 +51,3 @@ def identify_tags(tag: str, text: str, taglevel: int = 0) -> Dict[str, List[str]
     Returns:
     - Dict[str, List[str]]: A dictionary where each key is a POS tag and each value is a list of words that were assigned that tag.
     """
-    words = tokenize_words(text)
-    tagged_words = tagger_de.tag_sent(words, taglevel=0)
-
-    words_with_tag = []
-
-    for word, pos_tag in tagged_words:
-        if pos_tag == tag:
-            words_with_tag.append(word)
-
-    return words_with_tag

@@ -1,3 +1,22 @@
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "wortsalat.petra-viola"
+version = "0.0.1"
+description = "An NLP python library for analyzing the german language."
+keywords = ["nlp", "german nlp"]
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+
+dependencies = [
+  "HanTa",
+  "nltk",
+  "numpy",
+  "textstat",
+]
+
+[project.urls]
+Repository = "https://github.com/petra-viola/wortsalat"

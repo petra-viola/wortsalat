@@ -94,8 +94,7 @@ This will output the Flesch reading ease score of the text.
 
 ## Contributing - It takes a village!
 
-- [thespaceinvader]
-- [petra-viola]
+- [thespaceinvader](https://github.com/thespaceinvader)
 
 If you find a bug or have a feature request, please open an issue on GitHub. If you want to contribute to the development of Wortsalat, please fork the repository, make your changes, and then open a pull request.
 

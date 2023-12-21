@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "wortsalat.petra-viola"
+name = "wortsalat"
 version = "0.0.1"
 description = "An NLP python library for analyzing the german language."
 keywords = ["nlp", "german nlp"]

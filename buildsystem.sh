@@ -36,7 +36,7 @@ python3 -m build --wheel
 echo "##############################"
 echo "### 3. Install the Library ###"
 echo "##############################"
-python3 -m pip install "${BASE_DIR}/dist/wortsalat-0.0.0-py3-none-any.whl"
+python3 -m pip install "${BASE_DIR}/dist/wortsalat-0.0.1-py3-none-any.whl"
 
 echo "##############################"
 echo "### 4. Start the tests     ###"

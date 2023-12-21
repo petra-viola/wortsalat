@@ -37,6 +37,6 @@ def split_sentences(text: str) -> tuple[list[str]]:
     tuple: A tuple containing:
     - list: A list of sentences extracted from the input text.
     """
-    sentences = sent_tokenize(text)
+    sentences = sent_tokenize(text, language="german")
 
     return sentences

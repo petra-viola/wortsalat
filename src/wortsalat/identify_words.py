@@ -1,7 +1,7 @@
 from importlib import resources as impresources
 from . import data
 
-def identify_words(type: str ,text: str) -> list[str]:
+def identify_words(data_type: str ,text: str) -> list[str]:
     """
     Identify words in a given text that match a specific word list.
 
@@ -12,7 +12,7 @@ def identify_words(type: str ,text: str) -> list[str]:
     Returns:
     - list: The words in the input text that match the specified word list.
     """
-    inp_file = (impresources.files(data) / type)
+    inp_file = (impresources.files(data) / str(data_type))
     with inp_file.open("rt") as f:
         dictionary = f.readlines()
         dictionary = [line.strip("\n") for line in dictionary]

@@ -4,7 +4,7 @@ from wortsalat.preprocess import tokenize_words
 
 tagger = ht.HanoverTagger('morphmodel_ger.pgz')
 
-def identify_tags(tag: str, text: str, taglevel: int = 1) -> Dict[str, List[str]]:
+def identify_tags(tag: str, text: str) -> Dict[str, List[str]]:
     """
     This function tags the words using the HanTa library, and then identifies the words that match the specified POS tag.
 
@@ -30,11 +30,14 @@ def identify_tags(tag: str, text: str, taglevel: int = 1) -> Dict[str, List[str]
     - Dict[str, List[str]]: A dictionary where each key is a POS tag and each value is a list of words that were assigned that tag.
     """
     words = tokenize_words(text)
-    tagged_words = tagger.tag_sent(words, taglevel=taglevel)
+    tagged_words = tagger.tag_sent(words, taglevel=2)
 
     words_with_tag = list()
 
+    print(tagged_words)
+
     for word in tagged_words:
+        print(word)
         if word[2] == tag:
             words_with_tag.append(word)
     

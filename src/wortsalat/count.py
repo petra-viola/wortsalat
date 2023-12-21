@@ -62,6 +62,7 @@ def count_average_words_per_sentence(text: str) -> float:
     - float: The average number of words per sentence in the input text.
     """
     sentences = split_sentences(text)
+    print(sentences)
     total_words = sum(len(sentence.split()) for sentence in sentences)
     length_average_sentence = total_words / len(sentences)
     return length_average_sentence

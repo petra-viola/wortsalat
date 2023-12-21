@@ -1,7 +1,7 @@
 from wortsalat.preprocess import tokenize_words, split_sentences
-from wortsalat.identify_tags import identify_tags
-from wortsalat.identify_words import identify_words
-from wortsalat.count import count_total_words, count_total_sentences, count_average_word_length, count_average_words_per_sentence, count_words_with_tag, count_identified_words
+from wortsalat.identify_tags import identify_tags, count_words_with_tag
+from wortsalat.identify_words import identify_words, count_identified_words
+from wortsalat.count import count_total_words, count_total_sentences, count_average_word_length, count_average_words_per_sentence
 from wortsalat.wrapper import calculate_flesch_score, calculate_wiener_sachtextformel
 from wortsalat.lix import calculate_lix
 
@@ -40,13 +40,13 @@ def analyze_wortsalat (text: str) -> dict:
     words = tokenize_words(text)
     sentences = split_sentences(text)
 
-    words_with_tag = identify_tags("ADJA", text, int = 0)
-    identified_words = identify_words(type, text)
+    words_with_tag = identify_tags("ADJA", text)
+    identified_words = identify_words("ich.txt", text)
 
-    num_total_words = count_total_words(words)
-    num_total_sentences = count_total_sentences(words)
-    length_average_word = count_average_word_length(words)
-    length_average_sentence = count_average_words_per_sentence(sentences)
+    num_total_words = count_total_words(text)
+    num_total_sentences = count_total_sentences(text)
+    length_average_word = count_average_word_length(text)
+    length_average_sentence = count_average_words_per_sentence(text)
     num_words_with_tag = count_words_with_tag(words_with_tag)
     num_identified_words = count_identified_words(identified_words)
 
@@ -54,15 +54,15 @@ def analyze_wortsalat (text: str) -> dict:
     wiener_sachtextformel = calculate_wiener_sachtextformel(text)
     lix = calculate_lix(text)
 
-    adjektive = identify_tags('ADJ', words, 0)
-    adverbien = identify_tags('ADV', words, 0)
-    artikel = identify_tags('ART', words, 0)
-    modalverben = identify_tags('VM', words, 0)
-    nomen = identify_tags('NN', words, 0)
-    praepositionen = identify_words('APPO', 'APPR', 'APPRART', 'APPZR', words, 0)
-    pronomen = identify_words('PPER', words, 0)
-    verben = identify_words("VA(FIN)", "VA(IMP)", "VA(INF)", "VM(FIN)", "VM(INF)", "VM(PP)," "VV(FIN)", "VV(IMP)", "VV(INF)", "VV(IZU)", "VV(PP)," words, 0)
-    emojis = identify_words(emojis, words)
+    adjektive = identify_tags('ADJ', text)
+    adverbien = identify_tags('ADV', text)
+    artikel = identify_tags('ART', text)
+    modalverben = identify_tags('VM', text)
+    nomen = identify_tags('NN', text)
+    praepositionen = identify_tags('APPO', text)
+    pronomen = identify_tags('PPER', text)
+    verben = identify_tags("VA", text)
+    emojis = identify_words("emojis.txt", text)
 
     num_adjektive = len(adjektive)
     num_adverbien = len(adverbien)
@@ -84,9 +84,9 @@ def analyze_wortsalat (text: str) -> dict:
     ratio_verben = len(verben)/ num_total_words
     ratio_emojis = len(emojis)/ num_total_words
 
-    ich = identify_words(ich, words)
-    wir = identify_words(wir, words)
-    ich_wir_verhältnis = ich/ wir
+    ich = identify_words("ich.txt", text)
+    wir = identify_words("wir.txt", text)
+    ich_wir_verhältnis = len(ich) / len(wir)
 
     analysis_small = {
         "total number of words": num_total_words,
@@ -144,8 +144,7 @@ def print_wortsalat_small(text: str) -> dict:
     Returns:
     - dict: A dictionary containing all metrics.
     """
-    text = input()
-    analysis_small = analyze_wortsalat(text)
+    analysis_small, analysis_big = analyze_wortsalat(text)
     for key, value in analysis_small.items():
         print(key, ":", value)
 
@@ -159,7 +158,6 @@ def print_wortsalat_big(text: str) -> dict:
     Returns:
     - dict: A dictionary containing all metrics.
     """
-    text = input()
-    analysis_big = analyze_wortsalat(text)
+    analysis_big, analysis_small = analyze_wortsalat(text)
     for key, value in analysis_big.items():
         print(key, ":", value)

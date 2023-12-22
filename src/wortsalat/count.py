@@ -20,7 +20,13 @@ def count_total_sentences(text: str) -> int:
     """
     Count the total number of sentences in a given text.
 
-    This function splits the input text into sentences and then counts the number of sentences in the resulting list.
+    This function splits the input text into   inp_file = (impresources.files(data) / str(data_type))
+    with inp_file.open("rt") as f:
+        dictionary = f.readlines()
+        dictionary = [line.strip("\n") for line in dictionary]  inp_file = (impresources.files(data) / str(data_type))
+    with inp_file.open("rt") as f:
+        dictionary = f.readlines()
+        dictionary = [line.strip("\n") for line in dictionary] and then counts the number of sentences in the resulting list.
 
     Parameters:
     - text (str): The input text for which the sentence count will be calculated.

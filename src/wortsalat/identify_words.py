@@ -1,22 +1,20 @@
-from importlib import resources as impresources
-from . import data
-
-def identify_words(data_type: str ,text: str) -> list[str]:
+def identify_words(key:str, text: str) -> list[str]:
     """
     Identify words in a given text that match a specific word list.
 
     Parameters:
-    - type (str): The word list to match.
+    - key (str): The word list to match.
     - text (str): The input text for which the words will be identified.
 
     Returns:
     - list: The words in the input text that match the specified word list.
     """
-    inp_file = (impresources.files(data) / str(data_type))
-    with inp_file.open("rt") as f:
-        dictionary = f.readlines()
-        dictionary = [line.strip("\n") for line in dictionary]
-    identified_words = [word for word in text.split() if word in dictionary]
+    word_lists = {
+        "ich":  ['ich', 'Ich'],
+        "wir":  ['wir', 'Wir'],
+        "emojis":   [':)', ':D', '-.-', ':(']
+    }
+    identified_words = [word for word in text.split() if word in word_lists[key]]
     return identified_words
 
 def count_identified_words(identified_words: list[str]) -> int:

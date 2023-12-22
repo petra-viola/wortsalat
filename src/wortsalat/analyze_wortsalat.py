@@ -41,7 +41,7 @@ def analyze_wortsalat (text: str) -> dict:
     sentences = split_sentences(text)
 
     words_with_tag = identify_tags("ADJA", text)
-    identified_words = identify_words("ich.txt", text)
+    identified_words = identify_words("ich", text)
 
     num_total_words = count_total_words(text)
     num_total_sentences = count_total_sentences(text)
@@ -62,7 +62,7 @@ def analyze_wortsalat (text: str) -> dict:
     praepositionen = identify_tags('APPO', text)
     pronomen = identify_tags('PPER', text)
     verben = identify_tags("VA", text)
-    emojis = identify_words("emojis.txt", text)
+    emojis = identify_words("emojis", text)
 
     num_adjektive = len(adjektive)
     num_adverbien = len(adverbien)
@@ -84,8 +84,8 @@ def analyze_wortsalat (text: str) -> dict:
     ratio_verben = len(verben)/ num_total_words
     ratio_emojis = len(emojis)/ num_total_words
 
-    ich = identify_words("ich.txt", text)
-    wir = identify_words("wir.txt", text)
+    ich = identify_words("ich", text)
+    wir = identify_words("wir", text)
     ich_wir_verhältnis = len(ich) / len(wir)
 
     analysis_small = {

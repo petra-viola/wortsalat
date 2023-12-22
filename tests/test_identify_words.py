@@ -2,7 +2,7 @@ import pytest
 from wortsalat.identify_words import identify_words 
 
 def test_identify_words():
-   type = "ich.txt"
+   type = "ich"
    text = "Ich heiße Petra."
    expected_output = ['Ich']
 

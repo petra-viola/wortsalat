@@ -15,6 +15,7 @@ def identify_words(key:str, text: str) -> list[str]:
         "emojis":   [':)', ':D', '-.-', ':(']
     }
     identified_words = [word for word in text.split() if word in word_lists[key]]
+
     return identified_words
 
 def count_identified_words(identified_words: list[str]) -> int:

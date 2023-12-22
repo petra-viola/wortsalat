@@ -86,7 +86,11 @@ def analyze_wortsalat (text: str) -> dict:
 
     ich = identify_words("ich", text)
     wir = identify_words("wir", text)
-    ich_wir_verhältnis = len(ich) / len(wir)
+    try:
+        ich_wir_verhältnis = len(ich) / len(wir)
+    except ZeroDivisionError:
+        ergebnis = None
+   
 
     analysis_small = {
         "total number of words": num_total_words,

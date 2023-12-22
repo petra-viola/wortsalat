@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wortsalat"
-version = "0.0.3"
+version = "0.0.4"
 description = "An NLP python library for analyzing the german language."
 keywords = ["nlp", "german nlp"]
 readme = "README.md"

@@ -34,10 +34,7 @@ def identify_tags(tag: str, text: str) -> Dict[str, List[str]]:
 
     words_with_tag = list()
 
-    print(tagged_words)
-
     for word in tagged_words:
-        print(word)
         if word[2] == tag:
             words_with_tag.append(word)
     

@@ -91,7 +91,6 @@ def analyze_wortsalat (text: str) -> dict:
     except ZeroDivisionError:
         ergebnis = None
    
-
     analysis_small = {
         "total number of words": num_total_words,
         "total number of sentences": num_total_sentences,
